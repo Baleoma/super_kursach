@@ -1,0 +1,28 @@
+.montserrat {
+                 font-family: "Montserrat", sans-serif;
+                 font-optical-sizing: auto;
+                 font-weight: 400;
+                 font-style: normal;
+             }
+
+.nunito {
+             font-family: "Nunito", sans-serif;
+             font-optical-sizing: auto;
+             font-weight: 400;
+             font-style: normal;
+         }
+
+@font-face {
+    font-family: "Nyasha_sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("@/assets/fonts/Nyasha_Sans.ttf");
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
