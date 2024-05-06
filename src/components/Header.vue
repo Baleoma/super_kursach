@@ -1,10 +1,25 @@
-<template>
+<script>
+  export default {
+    data(){
+      return{
+        isShow: true,
+      }
+    },
 
+    methods: {
+      hide(){
+        this.isShow = !this.isShow
+      }
+    }
+  }
+</script>
+
+<template>
   <header>
     <div class="hider">
-      <img src="@/assets/images/Logo_hider.png" alt="slime" style="width: 101px; height: 101px">
+      <img src="@/assets/images/Logo_hider.png" alt="slime" style="width: 101px; height: 101px" @click="hide">
     </div>
-    <nav>
+    <nav  :class="{ nav: isShow, nav_closed: !isShow }">
       <ul>
         <li><RouterLink to="/main/">Об игре</RouterLink></li>
         <li><RouterLink to="/slimes/">Слаймы</RouterLink></li>
@@ -14,11 +29,9 @@
       </ul>
     </nav>
   </header>
-
 </template>
 
 <style scoped>
-
 header{
   position: sticky;
   top: 59px;
@@ -48,6 +61,18 @@ nav{
   right: 0;
   top: 27px;
   z-index: 2;
+  transition: all 2s ease;
+}
+
+.nav_closed {
+  filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.3));
+  border-radius: 80px 0 0 80px;
+  width: 1700px;
+  height: 127px;
+  position: absolute;
+  right: -1700px;
+  top: 27px;
+  z-index: 2;
 }
 
 nav ul{
@@ -73,11 +98,5 @@ nav ul li a:hover{
   background-color: #F27F7F;
   color: #FBFBFB;
 }
-
-
-
 </style>
 
-<script setup>
-
-</script>

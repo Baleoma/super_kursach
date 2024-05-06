@@ -33,7 +33,6 @@
     width: 1920px;
     height: 615px;
     font: 34px "Montserrat", sans-serif;
-
     display: flex;
     justify-content: center;
     align-items: end;
