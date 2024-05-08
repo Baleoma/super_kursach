@@ -25,7 +25,6 @@
         <li><RouterLink to="/slimes/">Слаймы</RouterLink></li>
         <li><RouterLink to="/world/">Мир</RouterLink></li>
         <li><RouterLink to="/slimesciense/">Слаймонаука</RouterLink></li>
-        <li><RouterLink to="/buildings/">Постройки</RouterLink></li>
       </ul>
     </nav>
   </header>
@@ -42,35 +41,36 @@ header{
   height: 181px;
   background-color: #FBFBFB;
   filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.3));
-  border-radius: 90px 0 0 90px;
+  border-radius: 0px 90px 90px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 0;
+  left: 0;
   z-index: 3;
 }
 
 nav{
   background-color: #FBFBFB;
   filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.3));
-  border-radius: 80px 0 0 80px;
+  border-radius: 0px 80px 80px 0px;
   width: 1700px;
   height: 127px;
   position: absolute;
-  right: 0;
+  left: 0;
   top: 27px;
   z-index: 2;
   transition: all 2s ease;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .nav_closed {
   filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.3));
-  border-radius: 80px 0 0 80px;
   width: 1700px;
   height: 127px;
   position: absolute;
-  right: -1700px;
+  left: -1700px;
   top: 27px;
   z-index: 2;
 }
