@@ -115,6 +115,7 @@ export default {
     border-radius: 40px;
     padding: 5px 22px 0 22px;
     margin-top: 31px;
+    height: 205px;
   }
 
   .slimesList{

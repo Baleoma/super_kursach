@@ -23,6 +23,12 @@ const router = createRouter({
       component: () => import('../views/SlimescienseView.vue')
     },
 
+    {
+      path: '/world/',
+      name: 'world',
+      component: () => import('../views/WorldView.vue')
+    },
+
 
     {
       path: '/test/',

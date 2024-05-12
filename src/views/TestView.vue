@@ -15,7 +15,7 @@ fetch('https://f5443215652c2cc0.mokky.dev/slimesdata')
         <ul class="mb-0">
           <li
               v-for="slime in slimes" :key="slime.id">{{slime.slimeName}}
-
+              <img src="https://disk.yandex.ru/client/disk?idApp=client&dialog=slider&idDialog=%2Fdisk%2F%D0%93%D0%BE%D1%80%D1%8B.jpg">
           </li>
         </ul>
       </div>
