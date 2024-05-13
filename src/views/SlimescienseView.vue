@@ -180,6 +180,7 @@
     filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
     text-align: center;
     padding-top: 250px;
+    margin-bottom: 100px;
   }
 
   .techno-wrapper{
@@ -208,6 +209,7 @@
     -webkit-text-stroke: unset;
     filter: none;
     padding-top: unset;
+    margin-bottom: unset;
   }
 
   .techno-card img{

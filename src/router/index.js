@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: '/slimes/',
       name: 'slimes',
-      component: () => import('../views/SlimesView.vue')
+      component: () => import('../views/SlimesView.vue'),
     },
 
     {

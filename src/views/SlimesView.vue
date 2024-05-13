@@ -28,14 +28,13 @@ export default {
         к ним с Земли, чтобы заботиться о них и получать в замен ценный плорт.</p>
 
       <div class="slimesList">
-
         <div v-if="load" class="slime-block" v-for="slime in slimes">
           <img :src="slime.slimePFP" alt="Картинка со слаймом">
           <p>{{slime.slimeName}}</p>
           <a href="#">Подробнее</a>
         </div>
-
       </div>
+
     </div>
   </main>
 </template>
@@ -74,6 +73,7 @@ export default {
     font-size: 49px;
     text-align: center;
     width: 1480px;
+    margin: 300px 0 100px 0;
   }
 
   .slime-block{
@@ -92,6 +92,7 @@ export default {
     font-size: 30px;
     width: 313px;
     margin-top: 26px;
+    margin-bottom: unset;
   }
 
   .slime-block a{
