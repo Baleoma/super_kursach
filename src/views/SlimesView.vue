@@ -36,6 +36,19 @@ export default {
       </div>
 
     </div>
+
+    <div class="slimes-desk">
+      <div class="slimes-desk-wrapper">
+          <div class="image"><img src="@/assets/images/slimesPFPs/SlimeImage1.png" alt="slime-img"></div>
+          <div class="p1"><p class="p1">Розовый слайм</p></div>
+          <div class="p2"><p class="p2">Розовые слаймы – самые распространённые на Далёком-Далёком Угодье слаймы.
+            Они весёлые, послушные и самые простые в разведении. Розовый слайм съест всё, что перед ним ни поместишь,
+            при этом у него нет предпочтений в еде, и его плорт наименее ценный среди других видов.</p></div>
+          <div class="diet"> <p>Диета</p> <img src="@/assets/images/slimesPFPs/SlimeImage1.png" alt="slime-img"></div>
+          <div class="favorite"> <p>Любимое</p> <img src="@/assets/images/slimesPFPs/SlimeImage1.png" alt="slime-img"></div>
+          <div class="toy"> <p>Игрушка</p> <img src="@/assets/images/slimesPFPs/SlimeImage1.png" alt="slime-img"></div>
+        </div>
+      </div>
   </main>
 </template>
 
@@ -64,6 +77,7 @@ export default {
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
   }
 
   .translition p{
@@ -127,4 +141,92 @@ export default {
     grid-row-gap: 43px;
     width: 1430px;
   }
+
+  .slimes-desk{
+    height: 1035px;
+    background-image: url("@/assets/images/slimes-details-bg.png");
+    margin: -120px 0 -120px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slimes-desk-wrapper{
+    padding: 35px 0 35px 0;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    background: #FBFBFB;
+    border-radius: 30px;
+    width: 1600px;
+    height: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.6fr 1.1fr 1.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "image p1 p1"
+    "image p2 p2"
+    "diet favorite toy";
+  }
+
+    .image {
+      grid-area: image;
+      background: #CAECFF;
+      width: 300px;
+      height: 300px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      border-radius: 30px;
+    }
+
+    .image img{
+      width: 260px;
+      height: 260px;
+    }
+
+    .p1 {
+      grid-area: p1;
+      color: #4D4B64;
+      font-size: 85px;
+      font-weight: 900;
+      font-family: "Nunito", sans-serif;
+      display: flex;
+      align-items: end;
+    }
+
+    .p2 {
+      grid-area: p2;
+      width: 900px;
+      font-family: "Nunito", sans-serif;
+      color: #4D4B64;
+      font-size: 32px;
+    }
+
+    .diet {
+      color: #4D4B64;
+      font-size: 45px;
+      font-weight: 900;
+      font-family: "Nunito", sans-serif;
+      grid-area: diet;
+    }
+
+    .favorite {
+      color: #4D4B64;
+      font-size: 45px;
+      font-weight: 900;
+      font-family: "Nunito", sans-serif;
+      grid-area: favorite;
+    }
+
+    .toy {
+      color: #4D4B64;
+      font-size: 45px;
+      font-weight: 900;
+      font-family: "Nunito", sans-serif;
+      grid-area: toy;
+    }
+
 </style>
