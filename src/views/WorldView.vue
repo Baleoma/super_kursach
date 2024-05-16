@@ -6,29 +6,97 @@
   <div class="translition">
     <div class="world-slider-wrapper">
       <div class="slider">
-        <div class="arrow-right">
-          <button><img src="@/assets/images/arrow-left.png" alt=""></button>
-        </div>
+
         <div class="slider-img">
-          <img src="@/assets/images/rancho.png" alt="">
+          <swiper
+              :navigation="true"
+              :modules="modules"
+              class="mySwiper"
+              @slideNextTransitionStart="current++"
+              @slidePrevTransitionStart="current--"
+          >
+            <swiper-slide><img src="@/assets/images/rancho.png" alt=""></swiper-slide>
+            <swiper-slide><img src="@/assets/images/dry-reef.png" alt=""></swiper-slide>
+            <swiper-slide><img src="@/assets/images/indigo-quarry.png" alt=""></swiper-slide>
+            <swiper-slide><img src="@/assets/images/moss-blanket-lands.png" alt=""></swiper-slide>
+            <swiper-slide><img src="@/assets/images/ancient-ruins.png" alt=""></swiper-slide>
+            <swiper-slide><img src="@/assets/images/glass-desert.png" alt=""></swiper-slide>
+          </swiper>
         </div>
-        <div class="arrow-left">
-          <button><img src="@/assets/images/arrow-left.png" alt=""></button>
-        </div>
+
       </div>
       <div class="slider-text">
-        <div class="head"><p>Ранчо</p></div>
+        <div class="head" ><p>{{ plase[current].head }}</p></div>
         <div class="text-divider"></div>
-        <div class="bott"><p>Локация, где изначально размещает всё своё хозяйство Beatrix LeBeau: участки под загоны
-          для слаймов, огороды и другое оборудование; здесь же находится дом, в котором можно вздремнуть, звёздная
-          почта, автомат по продаже улучшений для вакпака, обмен угодий и плорт-маркет.</p></div>
+        <div class="bott"><p>{{ plase[current].bott }}</p></div>
       </div>
     </div>
   </div>
-</template>
+</template>-
 
 <script>
 
+import {Swiper, SwiperSlide} from "swiper/vue";
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+export default {
+  components: {Swiper, SwiperSlide},
+  data() {
+    return {
+      current: 0,
+      plase:[
+        {
+          "head": "Ранчо",
+          "bott": "Локация, где изначально размещает всё своё хозяйство Beatrix LeBeau: участки под загоны для слаймов, " +
+              "огороды и другое оборудование; здесь же находится дом, в котором можно вздремнуть, звёздная почта, " +
+              "автомат по продаже улучшений для вакпака, обмен угодий и плорт-маркет."
+        },
+        {
+          "head": "Сухой риф",
+          "bott": "Начальная локация для игрока. На Сухом рифе обитает несколько видов слаймов. Всё это весьма " +
+              "распространённые виды, но будут большим подспорьем для начинающего хозяина ранчо."
+        },
+        {
+          "head": "Карьер индиго",
+          "bott": "Локация на Далёком-Далёком Запределье, которая знаменита своими пещерами и массивными каменными" +
+              " формациями. Проход на территорию находится через пещеру в Сухом рифе, которая ведёт к вратам," +
+              " отпираемым слаймовым ключом. "
+        },
+        {
+          "head": "Мшистый покров",
+          "bott": "Похожий на джунгли большой остров, изобилующий своеобразной фауной и флорой, многих представителей " +
+              "которых можно увидеть только на этом пышущем жизнью острове. Доступ к острову преграждают врата, " +
+              "отпираемые слаймовым ключом."
+        },
+        {
+          "head": "Древние руины",
+          "bott": 'Солнечная и открытая "двухэтажная" локация Далёкого-Далёкого Запределья, разделяющаяся на множество ' +
+                "подобных лабиринту ходов, открывающихся переключателями. Таинственные руины соединяют Карьер Индиго и" +
+                " Мшистый Покров и открывают путь к Стеклянной пустыне."
+        },
+        {
+          "head": "Стеклянная пустыня",
+          "bott": "песчаная локация Далёкого-Далёкого Запределья, в которую можно попасть с помощью специального " +
+              "телепорта из Древних руин. Она представляет собой бесплодную пустошь, утыканную гигантскими и кривыми " +
+              "стеклянными конструкциями, которые создают ультражаркие аномалии вокруг себя, что приводит к огненным " +
+              "бурям."
+        },
+      ]
+    }
+  },
+  computed: {
+    modules() {
+      return [Navigation]
+    }
+  },
+  watch: {
+    current(val) {
+      console.log(val)
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -73,29 +141,15 @@
     display: flex;
   }
 
-  .arrow-right{
-    height: 562px;
-    width: 100px;
-    background: #FFCACA;
-    border-radius: 30px 0 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .arrow-left{
-    height: 562px;
-    width: 100px;
-    background: #FFCACA;
-    border-radius: 0 30px 30px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .slider-img img{
     width: 1000px;
     height: 562px;
+  }
+
+  .mySwiper{
+    width: 1000px;
+    height: 562px;
+    border-radius: 50px;
   }
 
   .slider-text{
@@ -124,7 +178,7 @@
     margin: 20px 0 40px 0;
   }
 
-  .arrow-left img{
+  .swiper-button-next img{
     transform: scaleX(-1)
   }
 
@@ -133,4 +187,11 @@
     border: none;
   }
 
+  ::v-deep .swiper-button-next {
+    color: #FFCACA !important;
+  }
+
+  ::v-deep .swiper-button-prev {
+    color: #FFCACA !important;
+  }
 </style>
