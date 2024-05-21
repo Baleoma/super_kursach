@@ -1,6 +1,7 @@
 <template>
   <div class="background">
     <p>МИР</p>
+    <p class="stroke-blocker">МИР</p>
   </div>
 
   <div class="translition">
@@ -113,8 +114,13 @@ export default {
     font-family: Nunito, sans-serif;
     font-weight: 900;
     color: #ffdfdf;
-    -webkit-text-stroke: 5px #f27f7f;
+    -webkit-text-stroke: 10px #f27f7f;
     filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .background .stroke-blocker{
+    -webkit-text-stroke: unset;
+    position: absolute;
   }
 
   .translition{

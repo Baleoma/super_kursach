@@ -3,7 +3,13 @@ export default {
   data() {
     return {
       slimes: [],
-      load: false
+      load: false,
+      slid: 0,
+    }
+  },
+  methods: {
+    setId(id) {
+      this.slid = id
     }
   },
   mounted() {
@@ -20,6 +26,7 @@ export default {
   <main>
     <div class="background">
       <p>СЛАЙМЫ</p>
+      <p class="stroke-blocker">СЛАЙМЫ</p>
     </div>
 
     <div class="translition">
@@ -31,22 +38,20 @@ export default {
         <div v-if="load" class="slime-block" v-for="slime in slimes">
           <img :src="slime.slimePFP" alt="Картинка со слаймом">
           <p>{{slime.slimeName}}</p>
-          <a href="#">Подробнее</a>
+          <a href="#your-element" @click="setId(slime.id)">Подробнее</a>
         </div>
       </div>
 
     </div>
 
-    <div class="slimes-desk">
-      <div class="slimes-desk-wrapper">
-          <div class="image"><img src="@/assets/images/slimesPFPs/SlimeImage1.png" alt="slime-img"></div>
-          <div class="p1"><p class="p1">Розовый слайм</p></div>
-          <div class="p2"><p class="p2">Розовые слаймы – самые распространённые на Далёком-Далёком Угодье слаймы.
-            Они весёлые, послушные и самые простые в разведении. Розовый слайм съест всё, что перед ним ни поместишь,
-            при этом у него нет предпочтений в еде, и его плорт наименее ценный среди других видов.</p></div>
-          <div class="diet"> <p>Диета</p> <img src="@/assets/images/slimesPFPs/SlimeImage1.png" alt="slime-img"></div>
-          <div class="favorite"> <p>Любимое</p> <img src="@/assets/images/slimesPFPs/SlimeImage1.png" alt="slime-img"></div>
-          <div class="toy"> <p>Игрушка</p> <img src="@/assets/images/slimesPFPs/SlimeImage1.png" alt="slime-img"></div>
+    <div class="slimes-desk" id="your-element">
+      <div class="slimes-desk-wrapper" v-if="load">
+          <div class="image"><img :src="slimes.find(it => it.id === slid)?.slimePFP || ''" alt="slime-img"></div>
+          <div class="p1"><p class="p1">{{ slimes.find(it => it.id === slid)?.slimeName || '' }}</p></div>
+          <div class="p2"><p class="p2">{{ slimes.find(it => it.id === slid)?.slimeDesk || '' }}</p></div>
+          <div class="diet"> <p>Диета</p> <img :src="slimes.find(it => it.id === slid)?.slimeDiet || ''" alt="slime-img"></div>
+          <div class="favorite"> <p>Любимое</p> <img :src="slimes.find(it => it.id === slid)?.favoriteFood || ''" alt="slime-img"></div>
+          <div class="toy"> <p>Игрушка</p> <img :src="slimes.find(it => it.id === slid)?.slimeToy || ''" alt="slime-img"></div>
         </div>
       </div>
   </main>
@@ -65,9 +70,14 @@ export default {
     font-family: Nunito, sans-serif;
     font-weight: 900;
     color: #CAECFF;
-    -webkit-text-stroke: 5px #2E90AF;
+    -webkit-text-stroke: 10px #2E90AF;
     filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
     margin-top: 375px;
+  }
+
+  .background .stroke-blocker{
+    -webkit-text-stroke: unset;
+    position: absolute;
   }
 
   .translition{
@@ -159,7 +169,6 @@ export default {
     background: #FBFBFB;
     border-radius: 30px;
     width: 1600px;
-    height: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 0.6fr 1.1fr 1.3fr;
@@ -213,6 +222,11 @@ export default {
       grid-area: diet;
     }
 
+    .diet img{
+      height: 200px;
+      width: 200px;
+    }
+
     .favorite {
       color: #4D4B64;
       font-size: 45px;
@@ -221,12 +235,22 @@ export default {
       grid-area: favorite;
     }
 
+    .favorite img{
+      height: 200px;
+      width: 200px;
+    }
+
     .toy {
       color: #4D4B64;
       font-size: 45px;
       font-weight: 900;
       font-family: "Nunito", sans-serif;
       grid-area: toy;
+    }
+
+    .toy img{
+      height: 200px;
+      width: 200px;
     }
 
 </style>
