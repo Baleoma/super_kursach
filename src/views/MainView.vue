@@ -1,16 +1,11 @@
 <script>
 
-
-
 </script>
 
 <template>
-
   <main>
     <div class="background">
-
     </div>
-
     <div class="translition">
       <p>
         Slime Rancher — игра от первого лица разработкой которой занимается компания
@@ -25,17 +20,15 @@
         постоянной опасности, что грозит ей от перекатывающейся, трясущейся лавины слаймов за каждым углом.
       </p>
     </div>
-
     <div class="buy">
       <p>Где можно купить?</p>
-
       <div class="wrapper_bb">
         <div class="buy_block">
           <div class="header_bb">
             <img alt="Steam" src="@/assets/images/Steam-Gift-card.png">
           </div>
           <p>STEAM</p>
-          <a href="#">Купить сейчас</a>
+          <a href="https://store.steampowered.com/app/433340/Slime_Rancher/">Купить сейчас</a>
         </div>
 
         <div class="buy_block">
@@ -43,7 +36,7 @@
             <img alt="SWICH" src="@/assets/images/Nintendo-Swich-Edition.png">
           </div>
           <p>SWICH</p>
-          <a href="#">Купить сейчас</a>
+          <a href="https://www.fangamer.com/collections/slime-rancher/products/slime-rancher-game-nintendo-switch">Купить сейчас</a>
         </div>
 
         <div class="buy_block">
@@ -51,13 +44,11 @@
             <img alt="PS & XBOX" src="@/assets/images/Console-Version.png">
           </div>
           <p>PS & XBOX</p>
-          <a href="#">Купить сейчас</a>
+          <a href="https://www.amazon.com/Slime-Rancher-Deluxe-PlayStation-4/dp/B0849ZYXT5">Купить сейчас</a>
         </div>
       </div>
     </div>
-
   </main>
-
 </template>
 
 <style scoped>
@@ -73,8 +64,6 @@
     background-repeat: no-repeat;
     width: 1920px;
     height: 1456px;
-    //position: absolute;
-    //top: 671px;
     z-index: 1;
     display: flex;
     justify-content: center;

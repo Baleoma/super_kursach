@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer>
     <div class="stuff">
       <ul class="mainul">
         <li>
@@ -26,9 +26,7 @@
 </template>
 
 <style scoped>
-
-
-  .footer{
+  footer{
     background-image: url("@/assets/images/Footer.png");
     width: 1920px;
     height: 615px;
@@ -36,6 +34,7 @@
     display: flex;
     justify-content: center;
     align-items: end;
+    position: relative;
   }
 
   .mainul{

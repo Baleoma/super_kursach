@@ -46,12 +46,12 @@ export default {
 
     <div class="slimes-desk" id="your-element">
       <div class="slimes-desk-wrapper" v-if="load">
-          <div class="image"><img :src="slimes.find(it => it.id === slid)?.slimePFP || ''" alt="slime-img"></div>
-          <div class="p1"><p class="p1">{{ slimes.find(it => it.id === slid)?.slimeName || '' }}</p></div>
-          <div class="p2"><p class="p2">{{ slimes.find(it => it.id === slid)?.slimeDesk || '' }}</p></div>
-          <div class="diet"> <p>Диета</p> <img :src="slimes.find(it => it.id === slid)?.slimeDiet || ''" alt="slime-img"></div>
-          <div class="favorite"> <p>Любимое</p> <img :src="slimes.find(it => it.id === slid)?.favoriteFood || ''" alt="slime-img"></div>
-          <div class="toy"> <p>Игрушка</p> <img :src="slimes.find(it => it.id === slid)?.slimeToy || ''" alt="slime-img"></div>
+          <div class="image"><img :src="slimes.find(it => it.id === slid)?.slimePFP || slimes[0].slimePFP" alt="slime-img"></div>
+          <div class="p1"><p class="p1">{{ slimes.find(it => it.id === slid)?.slimeName || slimes[0].slimeName }}</p></div>
+          <div class="p2"><p class="p2">{{ slimes.find(it => it.id === slid)?.slimeDesk || slimes[0].slimeDesk }}</p></div>
+          <div class="diet"> <p>Диета</p> <img :src="slimes.find(it => it.id === slid)?.slimeDiet || slimes[0].slimeDiet" alt="slime-img"></div>
+          <div class="favorite"> <p>Любимое</p> <img :src="slimes.find(it => it.id === slid)?.favoriteFood || slimes[0].favoriteFood" alt="slime-img"></div>
+          <div class="toy"> <p>Игрушка</p> <img :src="slimes.find(it => it.id === slid)?.slimeToy || slimes[0].slimeToy" alt="slime-img"></div>
         </div>
       </div>
   </main>

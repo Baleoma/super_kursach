@@ -1,25 +1,9 @@
-<script>
-  export default {
-    data(){
-      return{
-        isShow: true,
-      }
-    },
-
-    methods: {
-      hide(){
-        this.isShow = !this.isShow
-      }
-    }
-  }
-</script>
-
 <template>
   <header>
     <div class="hider">
       <img src="@/assets/images/Logo_hider.png" alt="slime" style="width: 101px; height: 101px" @click="hide">
     </div>
-    <nav  :class="{ nav: isShow, nav_closed: !isShow }">
+    <nav :class="{ nav: isShow, nav_closed: !isShow }">
       <ul>
         <li><RouterLink to="/main/">Об игре</RouterLink></li>
         <li><RouterLink to="/slimes/">Слаймы</RouterLink></li>
@@ -29,6 +13,41 @@
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isShow: true,
+      lastScrollPosition: 0,
+    };
+  },
+
+  methods: {
+    hide() {
+      this.isShow = !this.isShow;
+    },
+
+    handleScroll() {
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollPosition > this.lastScrollPosition) {
+        this.isShow = false; // Скрываем меню при прокрутке вниз
+      } else if (currentScrollPosition === 0) {
+        this.isShow = true; // Показываем меню при прокрутке вверх или когда пользователь находится в верхней части страницы
+      }
+      this.lastScrollPosition = currentScrollPosition;
+    },
+  },
+
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+};
+</script>
 
 <style scoped>
 header{

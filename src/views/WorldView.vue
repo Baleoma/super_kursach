@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-</template>-
+</template>
 
 <script>
 
@@ -116,6 +116,7 @@ export default {
     color: #ffdfdf;
     -webkit-text-stroke: 10px #f27f7f;
     filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
+    margin-top: -50px;
   }
 
   .background .stroke-blocker{
