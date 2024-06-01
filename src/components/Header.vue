@@ -31,9 +31,9 @@ export default {
     handleScroll() {
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
       if (currentScrollPosition > this.lastScrollPosition) {
-        this.isShow = false; // Скрываем меню при прокрутке вниз
+        this.isShow = false;
       } else if (currentScrollPosition === 0) {
-        this.isShow = true; // Показываем меню при прокрутке вверх или когда пользователь находится в верхней части страницы
+        this.isShow = true;
       }
       this.lastScrollPosition = currentScrollPosition;
     },
